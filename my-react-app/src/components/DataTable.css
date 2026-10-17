@@ -1,0 +1,16 @@
+table {
+    width: 700px;
+    background-color: white;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+tr { 
+  border: solid;
+  border-width: 1px 0;
+}
+
+td, th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
