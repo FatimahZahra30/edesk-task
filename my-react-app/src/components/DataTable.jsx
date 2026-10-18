@@ -39,7 +39,7 @@ function DataTable() {
                             <Eye />
                         </button>
                         <Pencil className='pencil-icon'/>
-                        <Trash />
+                        <Trash className='trash-icon'/>
                     </td>
                 </tr>
             )
@@ -49,6 +49,9 @@ function DataTable() {
   return(
         <div className="table-outer-container">
             <div className="table-container">
+                <div className='table-name'>
+                    Customer <strong>Details</strong>
+                </div>
                 <table className="table">
                     <thead>
                         <tr className="header-line">
@@ -64,27 +67,28 @@ function DataTable() {
                         {DisplayData}
                     </tbody>
                 </table>
-
                 <div className="pagenation" style={{ display: 'flex', alignItems: 'center', marginTop: '15px' }}>
 
-                    <span>Showing <strong>{currentPage}</strong> out of {totalPages} entries</span>
-                    
-                    <button 
-                    onClick={handlePrev} 
-                    disabled={currentPage === 1}
-                    style={{ padding: '5px 15px', cursor: currentPage === 1 ? 'not-allowed' : 'pointer' }}
-                    >
-                    ← Previous
-                    </button>
-                
-                    <button 
-                    onClick={handleNext} 
-                    disabled={currentPage === totalPages}
-                    style={{ padding: '5px 15px', cursor: currentPage === totalPages ? 'not-allowed' : 'pointer' }}
-                    >
-                    Next →
-                    </button>
-                </div>
+                            <span>Showing <strong>{currentPage}</strong> out of <strong>{totalPages}</strong> entries</span>
+                            
+                            <div className='page-buttons'>
+                                <button 
+                                onClick={handlePrev} 
+                                disabled={currentPage === 1}
+                                style={{ cursor: currentPage === 1 ? 'not-allowed' : 'pointer' }}
+                                >
+                                ← Previous
+                                </button>
+                            
+                                <button 
+                                onClick={handleNext} 
+                                disabled={currentPage === totalPages}
+                                style={{ cursor: currentPage === totalPages ? 'not-allowed' : 'pointer' }}
+                                >
+                                Next →
+                                </button>
+                            </div>
+                    </div>
             </div>
         </div>
     );

@@ -1,14 +1,14 @@
 .table-outer-container {
     margin: 0 auto;
-    width: 725px;
+    width: 640px;
     max-width: 100%;
     background-color: rgb(228, 228, 228);
-    padding: 20px;
+    padding: 10px;
 }
 
 .table-container {
     margin: 0 auto;
-    width: 705px;
+    width: 610px;
     max-width: 100%;
     background-color: white;
     padding: 10px;
@@ -22,16 +22,33 @@ table {
     border-collapse: collapse;
     table-layout: fixed;
     text-align: left;
+    font-stretch: condensed;
     font-size: 11px;
+    color: rgb(51, 66, 134);
     padding: 0;
+}
+
+.table-name {
+    padding-bottom: 10px;
+    padding-left: 7px;
+    text-align: left;
+    font-stretch: condensed;
+    font-size: 16px;
+    color: rgb(51, 66, 134);
 }
 
 .pagenation{
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 0;
+    font-size: 11px;
+    font-stretch: condensed;
+    color: rgb(51, 66, 134);
 }
 
 tr { 
-  border: solid;
+  border: solid #ccc;
   border-width: 1px 0;
 }
 
@@ -67,14 +84,13 @@ td:nth-child(5) {
 }
 
 .header-line {
-    border: solid;
+    border: solid #ccc;
     border-width: 2px;
 }
 
 .action-items svg {
     width: 20px;
     height: 20px;
-    color: black;
 }
 
 .action-items {
@@ -86,8 +102,14 @@ td:nth-child(5) {
     background-color: transparent;
     background: transparent;
     border: none;
+    color: rgb(0, 195, 255);
 }
 
 .pencil-icon {
     margin-right: 5px;
+    color: rgb(255, 221, 0);
+}
+
+.trash-icon {
+    color: rgb(229, 29, 7);
 }
