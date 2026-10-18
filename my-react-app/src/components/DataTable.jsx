@@ -67,28 +67,36 @@ function DataTable() {
                         {DisplayData}
                     </tbody>
                 </table>
-                <div className="pagenation" style={{ display: 'flex', alignItems: 'center', marginTop: '15px' }}>
+                <div className="pagenation">
+                     <span>Showing <strong>{currentPage}</strong> out of <strong>{totalPages}</strong> entries</span>
 
-                            <span>Showing <strong>{currentPage}</strong> out of <strong>{totalPages}</strong> entries</span>
-                            
-                            <div className='page-buttons'>
-                                <button 
-                                onClick={handlePrev} 
-                                disabled={currentPage === 1}
-                                style={{ cursor: currentPage === 1 ? 'not-allowed' : 'pointer' }}
-                                >
-                                ← Previous
-                                </button>
-                            
-                                <button 
-                                onClick={handleNext} 
-                                disabled={currentPage === totalPages}
-                                style={{ cursor: currentPage === totalPages ? 'not-allowed' : 'pointer' }}
-                                >
-                                Next →
-                                </button>
-                            </div>
+                    <div className="page-buttons">
+                        <button
+                        onClick={handlePrev}
+                        disabled={currentPage === 1}
+                        className="page-arrow"
+                    >
+                        &lt;
+                    </button>
+                        {Array.from({ length: totalPages }, (_, index) => (
+                            <button
+                                key={index + 1}
+                                onClick={() => setCurrentPage(index + 1)}
+                                className={currentPage === index + 1 ? 'active' : ''}
+                            >
+                                {index + 1}
+                            </button>
+                        ))}
+                        <button
+                        onClick={handleNext}
+                        disabled={currentPage === totalPages}
+                        className="page-arrow"
+                        >
+                        &gt;
+                    </button>
                     </div>
+
+                </div>
             </div>
         </div>
     );
