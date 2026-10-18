@@ -1,10 +1,9 @@
-import DataTable from "./components/DataTable";
+import TabNavigation from "./components/TabNavigation";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World!</h1>
-      <DataTable />
+      <TabNavigation />
     </div>
   );
 }
