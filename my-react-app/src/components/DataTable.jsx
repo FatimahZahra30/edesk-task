@@ -1,5 +1,6 @@
 import userData from '../data.json'; 
 import { useState } from 'react';
+import { Trash, Pencil, Eye } from 'lucide-react';
 import './DataTable.css';
 
 function DataTable() {
@@ -25,52 +26,65 @@ function DataTable() {
   };
 
     const DisplayData=currentRows.map(
-        (info)=>{
+        (info, index)=>{
             return(
-                <tr>
+                <tr key={index}>
+                    <td>{indexOfFirstRow + index + 1}</td> 
                     <td>{info.name}</td>
                     <td>{info.language}</td>
                     <td>{info.id}</td>
                     <td>{info.version}</td>
+                    <td className="action-items">
+                        <button className='view-button'>
+                            <Eye />
+                        </button>
+                        <Pencil className='pencil-icon'/>
+                        <Trash />
+                    </td>
                 </tr>
             )
         }
     )
 
   return(
-        <div>
-            <table class="table">
-                <thead>
-                    <tr>
-                    <th>Name</th>
-                    <th>Language</th>
-                    <th>ID</th>
-                    <th>Version</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {DisplayData}
-                </tbody>
-            </table>
+        <div className="table-outer-container">
+            <div className="table-container">
+                <table className="table">
+                    <thead>
+                        <tr className="header-line">
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Language</th>
+                        <th>ID</th>
+                        <th>Version</th>
+                        <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {DisplayData}
+                    </tbody>
+                </table>
 
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '15px' }}>
-                <button 
-                onClick={handlePrev} 
-                disabled={currentPage === 1}
-                style={{ padding: '5px 15px', cursor: currentPage === 1 ? 'not-allowed' : 'pointer' }}
-                >
-                ← Previous
-                </button>
+                <div className="pagenation" style={{ display: 'flex', alignItems: 'center', marginTop: '15px' }}>
+
+                    <span>Showing <strong>{currentPage}</strong> out of {totalPages} entries</span>
+                    
+                    <button 
+                    onClick={handlePrev} 
+                    disabled={currentPage === 1}
+                    style={{ padding: '5px 15px', cursor: currentPage === 1 ? 'not-allowed' : 'pointer' }}
+                    >
+                    ← Previous
+                    </button>
                 
-                <span>Page <strong>{currentPage}</strong> of {totalPages}</span>
-                
-                <button 
-                onClick={handleNext} 
-                disabled={currentPage === totalPages}
-                style={{ padding: '5px 15px', cursor: currentPage === totalPages ? 'not-allowed' : 'pointer' }}
-                >
-                Next →
-                </button>
+                    <button 
+                    onClick={handleNext} 
+                    disabled={currentPage === totalPages}
+                    style={{ padding: '5px 15px', cursor: currentPage === totalPages ? 'not-allowed' : 'pointer' }}
+                    >
+                    Next →
+                    </button>
+                </div>
             </div>
         </div>
     );
