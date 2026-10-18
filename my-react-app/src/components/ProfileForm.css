@@ -47,4 +47,5 @@ input:focus {
     cursor: pointer;
     background-color: rgb(53, 120, 195);
     font-size: 16px;
+    color: white;
 }

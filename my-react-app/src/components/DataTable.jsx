@@ -3,6 +3,10 @@ import { useState } from 'react';
 import { Trash, Pencil, Eye } from 'lucide-react';
 import './DataTable.css';
 
+// react table reference: https://stackoverflow.com/questions/13624276/how-to-separate-table-rows-with-a-line,
+// https://www.geeksforgeeks.org/reactjs/how-to-parse-json-data-into-react-table-component/
+// sample json data reference: https://microsoftedge.github.io/Demos/json-dummy-data/
+
 function DataTable() {
     const [currentPage, setCurrentPage] = useState(1);
     const rowsPerPage = 5;

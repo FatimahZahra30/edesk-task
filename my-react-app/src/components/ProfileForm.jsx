@@ -1,6 +1,8 @@
 import { useState } from "react";
 import './ProfileForm.css'
 
+// reference: https://www.w3schools.com/css/css_form_inputs.asp
+
 function ProfileForm () {
     const [inputs, setInputs] = useState("");
 
