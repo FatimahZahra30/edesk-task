@@ -8,22 +8,26 @@ function DataTable() {
     const rowsPerPage = 5;
 
     const indexOfLastRow = currentPage * rowsPerPage;
-  const indexOfFirstRow = indexOfLastRow - rowsPerPage;
-  const currentRows = userData.slice(indexOfFirstRow, indexOfLastRow);
+    const indexOfFirstRow = indexOfLastRow - rowsPerPage;
+    const currentRows = userData.slice(indexOfFirstRow, indexOfLastRow);
 
-  const totalPages = Math.ceil(userData.length / rowsPerPage);
+    const totalPages = Math.ceil(userData.length / rowsPerPage);
 
-  const handleNext = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
+    const handleNext = () => {
+        if (currentPage < totalPages) {
+        setCurrentPage(currentPage + 1);
+        }
+    };
 
-  const handlePrev = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
+    const handlePrev = () => {
+        if (currentPage > 1) {
+        setCurrentPage(currentPage - 1);
+        }
+    };
+
+    const handleAlert = (infoRow) => {
+        alert(`Name: ${infoRow.name}\n Language: ${infoRow.language}\n ID: ${infoRow.id}\n Version: ${infoRow.version}`);
+    };
 
     const DisplayData=currentRows.map(
         (info, index)=>{
@@ -35,7 +39,7 @@ function DataTable() {
                     <td>{info.id}</td>
                     <td>{info.version}</td>
                     <td className="action-items">
-                        <button className='view-button'>
+                        <button className='view-button' onClick={() => handleAlert(info)}>
                             <Eye />
                         </button>
                         <Pencil className='pencil-icon'/>
