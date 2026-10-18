@@ -54,3 +54,20 @@
   font-size: 17px;
   color: black;
 }
+
+.home-panel {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    min-width: 0;
+}
+
+.tree-section {
+    flex: 0 1 250px;
+    width: 250px;
+    min-width: 180px;
+    max-width: 250px;
+    min-height: 0;
+    box-sizing: border-box;
+}
