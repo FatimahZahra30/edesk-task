@@ -2,6 +2,7 @@ import { Tabs, Tab, TabPanel, TabList } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import './TabNavigation.css';
 import DataTable from './DataTable';
+import ProfileForm from './ProfileForm';
 
 function TabNavigation() {
   return (
@@ -21,7 +22,10 @@ function TabNavigation() {
         </TabPanel>
 
         <TabPanel>
-            <p>This is the Profile section.</p>
+            <div className='panel-header'>
+                Profile Tab.
+            </div>
+            <ProfileForm/>
         </TabPanel>
 
         <TabPanel>
